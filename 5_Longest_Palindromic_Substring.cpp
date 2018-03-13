@@ -117,6 +117,10 @@ public:
                 }
             }
         }
+        for (size_t idx = 0; idx < s.size(); ++idx) {
+            free(dp[idx]);
+        }
+        free(dp);
         return s.substr(max_start, max_length + 1);
     }
 };

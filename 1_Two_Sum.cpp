@@ -10,6 +10,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
@@ -44,6 +45,35 @@ public:
                 return result;
             }
             m[nums[idx]] = idx;
+        }
+        return result;
+    }
+};
+
+// return idx -> not sort
+// for 15 :  3_sum
+class Solution3 {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        sort(nums.begin(), nums.end());
+        vector<int> result;
+        size_t left = 0;
+        size_t right = nums.size() - 1;
+        while (left < right) {
+            if (target == nums[left] + nums[right]) {
+                result.push_back(nums[left]);
+                result.push_back(nums[right]);
+                do {
+                    ++left;
+                } while (left < right && nums[left - 1] == nums[left]);
+                do {
+                    --right;
+                } while (right > left && nums[right] == nums[right + 1]);
+            } else if (nums[left] + nums[right] < target) {
+                ++left;
+            } else {
+                --right;
+            }
         }
         return result;
     }

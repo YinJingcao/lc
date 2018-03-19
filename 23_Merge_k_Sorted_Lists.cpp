@@ -1,14 +1,14 @@
- /**
- * @file 21_Merge_Two_Sorted_Lists.cpp
+/**
+ * @file 23_Merge_k_Sorted_Lists.cpp
  * @author yinjingcao
- * @date 2018/03/16 17:25:40
+ * @date 2018/03/16 18:06:43
  * @version $Revision$ 
  * @brief 
  *  
  **/
 
 
-// Definition for singly-linked list.
+//Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode *next;
@@ -17,6 +17,15 @@ struct ListNode {
 
 class Solution {
 public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        ListNode* itr = NULL;
+        for (size_t idx = 0; idx < lists.size(); ++idx) {
+            itr = mergeTwoLists(itr, lists[idx]);
+        }
+        return itr;
+    }
+
+private:
     ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
         ListNode* lhs = l1;
         ListNode* rhs = l2;
@@ -40,36 +49,6 @@ public:
             itr->next = rhs;
         }
         return result->next;
-    }
-};
-
-// wrong
-class Solution2 {
-public:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        ListNode* lhs = l1;
-        ListNode* rhs = l2;
-        while (lhs != NULL && rhs != NULL) {
-            if (lhs->val < rhs->val) {
-                ListNode* tmp = lhs;
-                lhs = lhs->next;
-                tmp->next = rhs;
-            } else {
-                ListNode* tmp = rhs;
-                rhs = rhs->next;
-                tmp->next = lhs;
-            }
-        }
-        if (l1 == NULL) {
-            return l2;
-        } else if (l2 == NULL) {
-            return l1;
-        }
-        if (l1->val < l2->val) {
-            return l1;
-        } else {
-            return l2;
-        }
     }
 };
 

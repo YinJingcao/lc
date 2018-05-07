@@ -1,6 +1,6 @@
 /**
  * @file 76_Minimum_Window_Substring.cpp
- * @author yinjingcao(yinjingcao@baidu.com)
+ * @author yinjingcao
  * @date 2018/03/28 19:51:26
  * @version $Revision$ 
  * @brief 

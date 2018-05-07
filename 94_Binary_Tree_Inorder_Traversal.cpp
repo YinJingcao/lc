@@ -1,13 +1,6 @@
-/***************************************************************************
- * 
- * Copyright (c) 2018 Baidu.com, Inc. All Rights Reserved
- * $Id$ 
- * 
- **************************************************************************/
- 
  /**
  * @file 94_Binary_Tree_Inorder_Traversal.cpp
- * @author yinjingcao(yinjingcao@baidu.com)
+ * @author yinjingcao
  * @date 2018/05/07 16:31:52
  * @version $Revision$ 
  * @brief 

@@ -57,7 +57,6 @@ private:
         }
         return false;
     }
-
 };
 
 int main() {
